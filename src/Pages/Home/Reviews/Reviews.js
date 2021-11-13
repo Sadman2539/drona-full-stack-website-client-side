@@ -9,7 +9,7 @@ const Reviews = () => {
 
     // useEffect for products 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://pacific-earth-55330.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data));
     }, [])

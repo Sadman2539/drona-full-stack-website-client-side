@@ -26,7 +26,7 @@ import Typography from '@mui/material/Typography';
 import Orders from '../Orders/Orders';
 import { Button } from '@mui/material';
 import { Topic } from "@mui/icons-material";
-import DashBoardHome from "../DashBoardHome/DashBoardHome";
+import DashBoardHome from "./DashBoardHome/DashBoardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import AddProduct from "../AddProduct/AddProduct";
 

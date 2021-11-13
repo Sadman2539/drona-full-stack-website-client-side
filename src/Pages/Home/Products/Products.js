@@ -13,7 +13,7 @@ const Products = () => {
 
     // useEffect for products 
     useEffect(() => {
-        fetch('http://localhost:5000/explore')
+        fetch('https://pacific-earth-55330.herokuapp.com/explore')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])

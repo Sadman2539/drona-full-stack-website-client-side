@@ -2,7 +2,6 @@ import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography
 import React, { useState } from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import LoginSlider from '../../Shared/LoginSlider/LoginSlider';
 
 
 

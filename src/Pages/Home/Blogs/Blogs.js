@@ -16,7 +16,7 @@ const Blogs = () => {
 
     // useEffect for products 
     useEffect(() => {
-        fetch('http://localhost:5000/Blogs')
+        fetch('https://pacific-earth-55330.herokuapp.com/Blogs')
             .then(res => res.json())
             .then(data => setBlogs(data));
     }, [])
@@ -29,10 +29,10 @@ const Blogs = () => {
                 </Typography>
 
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-            {
-                blogs.map(blog => <Blog key={blog._id} blog={blog} />)
+                    {
+                        blogs.map(blog => <Blog key={blog._id} blog={blog} />)
 
-            }
+                    }
                 </Grid>
             </Container >
         </Box>

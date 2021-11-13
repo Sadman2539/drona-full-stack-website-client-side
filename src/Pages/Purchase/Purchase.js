@@ -18,7 +18,7 @@ const Purchase = () => {
     const [purchaseInfo, setPurchaseInfo] = useState(initialInfo);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/purchase/${purchaseId}`)
+        fetch(`https://pacific-earth-55330.herokuapp.com/${purchaseId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, []);
