@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import TextField from '@mui/material/TextField';
 import useAuth from '../../hooks/useAuth';
-import Products from '../Products/Products';
+import Products from '../Home/Products/Products';
 import { useParams } from 'react-router';
 import { Grid } from '@material-ui/core';
 import CardContent from '@mui/material/CardContent';
@@ -22,11 +22,11 @@ const style = {
 };
 const Purchase = () => {
     const [product, setProduct] = useState([]);
-    const { purchaseId } = useParams();
-    const { price, name, description, image, _id, rating } = Products;
+    const { _id } = useParams();
+    const { price, name, description, image, rating } = Products;
 
     useEffect(() => {
-        fetch(`./products.json/services/${purchaseId}`)
+        fetch(`https://pacific-earth-55330.herokuapp.com/purchase/${_id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, []);
@@ -81,7 +81,7 @@ const Purchase = () => {
                         <CardMedia
                             component="img"
                             style={{ width: 'auto', height: '100px', margin: '0 auto' }}
-                            image={product.image}
+                            image={image}
                             alt="Drone Photo"
                         />
                         <CardContent>

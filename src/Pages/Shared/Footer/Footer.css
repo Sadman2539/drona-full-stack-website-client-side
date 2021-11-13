@@ -1,0 +1,26 @@
+
+.footer-section{
+    background-color:  #273044;
+    color: white;
+
+}
+.footer-contact{
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+}
+.contact button{
+    border: 1px solid white;
+}
+.social-icons{
+    display: flex;
+    justify-content: center;
+    transition: 0.8s;
+}
+.social-icons i{
+color: white;
+}
+.social-link i:hover{
+color: red;
+}

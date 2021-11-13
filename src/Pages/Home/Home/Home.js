@@ -1,8 +1,11 @@
 import React from 'react';
-import Products from '../../Products/Products';
+import Products from '../Products/Products';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Banner from '../Banner/Banner';
-import PhotoAlbum from '../PhotoAlbum/PhotoAlbum';
+
+import Reviews from '../Reviews/Reviews';
+import Blogs from '../Blogs/Blogs';
+import Footer from '../../Shared/Footer/Footer';
 
 const Home = () => {
     return (
@@ -10,7 +13,9 @@ const Home = () => {
             <Navigation></Navigation>
             <Banner></Banner>
             <Products></Products>
-            <PhotoAlbum></PhotoAlbum>
+            <Blogs></Blogs>
+            <Reviews></Reviews>
+            <Footer></Footer>
         </div>
     );
 };

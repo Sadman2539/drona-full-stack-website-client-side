@@ -1,31 +1,22 @@
-import React from 'react';
-import { experimentalStyled as styled } from '@mui/material/styles';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Container, Typography } from '@mui/material';
 
 import Navigation from '../Shared/Navigation/Navigation';
-import Product from '../Product/Product';
+import Product from '../Home/Product/Product';
 
-const services = [
-    {
-        name: 'Fluoride Treatment',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed culpa cumque enim! Voluptatibus aliquid expedita saepe accusantium itaque ducimus rem voluptas',
 
-    },
-    {
-        name: 'Cavity Filling',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed culpa cumque enim! Voluptatibus aliquid expedita saepe accusantium itaque ducimus rem voluptas',
-
-    },
-    {
-        name: 'Teeth Whitening',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed culpa cumque enim! Voluptatibus aliquid expedita saepe accusantium itaque ducimus rem voluptas',
-
-    }
-]
 
 const Explore = () => {
+    const [products, setProducts] = useState([]);
+
+    // load products from the server
+    useEffect(() => {
+        fetch('http://localhost:5000/explore')
+            .then(res => res.json())
+            .then(data => setProducts(data))
+    }, []);
     return (
         <>
             <Navigation></Navigation>
@@ -39,9 +30,9 @@ const Explore = () => {
                     </Typography>
                     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                         {
-                            services.map(service => <Product
-                                key={service.name}
-                                service={service}
+                            products.map(product => <Product
+                                key={product._id}
+                                service={product}
                             ></Product>)
                         }
                     </Grid>

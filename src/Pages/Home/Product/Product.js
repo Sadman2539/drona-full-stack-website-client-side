@@ -8,7 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import { NavLink } from 'react-router-dom';
 
 const Product = (props) => {
-    const { name, description, image, id, price } = props.service;
+    const { name, description, image, _id, price } = props.service;
     return (
         <Grid item xs={4} sm={4} md={4}>
             <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
@@ -30,7 +30,7 @@ const Product = (props) => {
                     <Typography variant="body2">
                         {description}
                     </Typography>
-                    <NavLink to={`/purchase/${id}`}>
+                    <NavLink to={`/purchase/${_id}`}>
                         <button className="regular-btn">Purchase Now</button>
                     </NavLink>
                 </CardContent>

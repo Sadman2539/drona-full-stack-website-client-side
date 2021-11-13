@@ -13,7 +13,7 @@ const Products = () => {
 
     // useEffect for products 
     useEffect(() => {
-        fetch('./products.json')
+        fetch('http://localhost:5000/explore')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])
