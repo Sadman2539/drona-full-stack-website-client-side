@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 import './App.css';
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import DashBoard from "./Pages/DashBoard/DashBoard/DashBoard";
 import Explore from "./Pages/Explore/Explore";
 import Home from "./Pages/Home/Home/Home";
 
@@ -37,9 +38,12 @@ function App() {
             <Route exact path="/explore">
               <Explore></Explore>
             </Route>
-            <Route exact path="/purchase/:purchaseId">
+            <PrivateRoute exact path="/purchase/:purchaseId">
               <Purchase></Purchase>
-            </Route>
+            </PrivateRoute>
+            <PrivateRoute exact path="/dashboard">
+              <DashBoard></DashBoard>
+            </PrivateRoute>
             <Route exact path="*">
               <NotFound></NotFound>
             </Route>

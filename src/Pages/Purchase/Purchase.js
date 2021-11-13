@@ -9,30 +9,19 @@ import { useParams } from 'react-router';
 import { Grid } from '@material-ui/core';
 import CardContent from '@mui/material/CardContent';
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'white',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
 const Purchase = () => {
     const [product, setProduct] = useState([]);
-    const { _id } = useParams();
-    const { price, name, description, image, rating } = Products;
+    const { purchaseId } = useParams();
+
+    const { user } = useAuth();
+    const initialInfo = { productName: product.name, productPrice: product.price, userName: user.displayName, email: user.email, phone: '', address: '' };
+    const [purchaseInfo, setPurchaseInfo] = useState(initialInfo);
 
     useEffect(() => {
-        fetch(`https://pacific-earth-55330.herokuapp.com/purchase/${_id}`)
+        fetch(`http://localhost:5000/purchase/${purchaseId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, []);
-    const { user } = useAuth();
-    const initialInfo = { userName: user.displayName, email: user.email, phone: '' };
-    const [purchaseInfo, setPurchaseInfo] = useState(initialInfo);
 
     // handleOnBlur function call 
     const handleOnBlur = e => {
@@ -49,12 +38,12 @@ const Purchase = () => {
         // collect data
         const purchase = {
             ...purchaseInfo,
-            price,
-            productName: name,
-            rating
+            productName: product.name,
+            productPrice: product.price,
+            productRating: product.rating,
         }
         console.log(purchase);
-        //send to the server
+        // send to the server
 
         fetch('http://localhost:5000/orders', {
             method: 'POST',
@@ -66,7 +55,6 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    // setBookingSuccess(true);
                     alert('Your order has been placed successfully');
                 }
             })
@@ -74,14 +62,14 @@ const Purchase = () => {
         e.preventDefault();
     }
     return (
-        <Container>
-            <Grid container spacing={2} sx={{ mt: 8 }}>
-                <Grid item xs={12} md={6}>
+        <Container sx={{ mt: 8 }}>
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 6, sm: 6, md: 12 }}  >
+                <Grid item xs={12} md={6} >
                     <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
                         <CardMedia
                             component="img"
-                            style={{ width: 'auto', height: '100px', margin: '0 auto' }}
-                            image={image}
+                            style={{ width: 'auto', height: '200px', margin: '0 auto' }}
+                            image={product.image}
                             alt="Drone Photo"
                         />
                         <CardContent>
@@ -90,10 +78,13 @@ const Purchase = () => {
                                 Model: {product.name}
                             </Typography>
 
-                            <Typography variant="body2">
+                            <Typography variant="h6">
                                 Price: {product.price}
                             </Typography>
-                            <Typography variant="body2">
+                            <Typography variant="h6">
+                                Rating: {product.rating}
+                            </Typography>
+                            <Typography variant="body1" sx={{ mt: 3 }}>
                                 {product.description}
                             </Typography>
 
@@ -108,7 +99,22 @@ const Purchase = () => {
 
                     </Typography>
                     <form onSubmit={handlePurchaseSubmit}>
-
+                        <TextField
+                            sx={{ width: '100%', m: 1 }}
+                            id="outlined-disabled"
+                            disabled
+                            name="productName"
+                            label={product.name}
+                            size="small"
+                        />
+                        <TextField
+                            sx={{ width: '100%', m: 1 }}
+                            id="outlined-disabled"
+                            disabled
+                            name="productPrice"
+                            label={product.price}
+                            size="small"
+                        />
                         <TextField
                             sx={{ width: '100%', m: 1 }}
                             id="standard-size-normal"
@@ -117,6 +123,8 @@ const Purchase = () => {
                             defaultValue={user.displayName}
                             size="small"
                         />
+
+
                         <TextField
                             sx={{ width: '100%', m: 1 }}
                             id="standard-size-normal"

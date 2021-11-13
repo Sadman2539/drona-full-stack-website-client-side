@@ -43,6 +43,31 @@ const Navigation = () => {
                                 <Button color="inherit">Login</Button>
                             </NavLink>
                     }
+                    {
+                        !user.displayName ?
+                            <div>
+                                <Link to="/login">
+                                    <button className="regular-btn">Login</button>
+                                </Link>
+                            </div> :
+                            <Box>
+                                <Link style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
+                                    <Button color="inherit">DashBoard</Button>
+                                </Link>
+                                <Link style={{ textDecoration: 'none', color: 'white' }} to="/orders">
+                                    <Button color="inherit">My Orders</Button>
+                                </Link>
+                                <Link style={{ textDecoration: 'none', color: 'white' }} to="/review">
+                                    <Button color="inherit">Review</Button>
+                                </Link>
+                                <Link style={{ textDecoration: 'none', color: 'white' }} to="/payment">
+                                    <Button color="inherit">Payment</Button>
+                                </Link>
+
+                                <span className=" me-4"> {user.displayName}!</span>
+                                <button onClick={logout} className="regular-btn">Log Out</button>
+                            </Box>
+                    }
 
                 </Toolbar>
             </AppBar>
