@@ -1,4 +1,12 @@
-import * as React from 'react';
+import React from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams,
+    useRouteMatch
+} from "react-router-dom";
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -16,6 +24,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Orders from '../Orders/Orders';
+import { Button } from '@mui/material';
+import { Topic } from "@mui/icons-material";
+import DashBoardHome from "../DashBoardHome/DashBoardHome";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import AddProduct from "../AddProduct/AddProduct";
+
 
 const drawerWidth = 240;
 
@@ -26,13 +40,26 @@ function DashBoard(props) {
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-
+    const { path, url } = useRouteMatch();
     const drawer = (
+
         <div>
+            <Link style={{ textDecoration: 'none', color: 'black' }} to="/home">
+                <Button>Home</Button>
+            </Link>
             <Toolbar />
             <Divider />
+            <Link style={{ textDecoration: 'none', color: 'black' }} to={`${url}`}>
+                <Button color="inherit">DashBoard</Button>
+            </Link> <br />
+            <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
+                <Button color="inherit">Add Product</Button>
+            </Link>
+            <Link style={{ textDecoration: 'none' }} to={`${url}/manageProducts`}><Button color="inherit">Manage Products</Button></Link>
+            <Link style={{ textDecoration: 'none', color: 'black' }} to={`${url}/manageOrders`}><Button color="inherit">Manage All Orders</Button></Link>
+            <Link style={{ textDecoration: 'none', color: 'black' }} to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                {['Make Admin', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                     <ListItem button key={text}>
                         <ListItemIcon>
                             {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -49,7 +76,9 @@ function DashBoard(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
+
         <Box sx={{ display: 'flex' }}>
+
             <CssBaseline />
             <AppBar
                 position="fixed"
@@ -110,14 +139,25 @@ function DashBoard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                <Typography paragraph>
-                    <Orders />
-                </Typography>
-                <Typography paragraph>
 
-                </Typography>
-            </Box>
-        </Box>
+                <Switch>
+                    <Route exact path={path}>
+                        <DashBoardHome />
+                    </Route>
+                    <Route path={`${path}/manageOrders`}>
+                        <Orders />
+                    </Route>
+                    <Route path={`${path}/makeAdmin`}>
+                        <MakeAdmin />
+                    </Route>
+                    <Route path={`${path}/addProduct`}>
+                        <AddProduct />
+                    </Route>
+                </Switch>
+
+
+            </Box >
+        </Box >
     );
 }
 
