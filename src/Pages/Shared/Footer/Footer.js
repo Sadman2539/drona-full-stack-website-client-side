@@ -2,14 +2,15 @@ import React from 'react';
 import { Button, Form, Stack } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './Footer.css';
+
 const Footer = () => {
     return (
         <div className="footer-section">
             <div className="footer-contact mt-5 p-5">
 
                 <div className="about w-25">
-                    <h3>Language Buddy</h3>
-                    <p>Language Buddy is a complete platform where you can learn, practice and share your thoughts about languages with people around the world.</p>
+                    <h3>Drona: Find your best drone</h3>
+                    <p>Drona is a drone selling shop where we provide the best drones in the market with the reasonable price for our customers.</p>
                 </div>
                 {/* contact section  */}
                 <div className="contact">
@@ -45,11 +46,11 @@ const Footer = () => {
                         <NavLink className="route" to="/home">
                             Home
                         </NavLink>
-                        <NavLink className="route" to="/about" >
-                            About
+                        <NavLink className="route" to="/explore" >
+                            Explore
                         </NavLink>
-                        <NavLink className="route" to="/courses">
-                            Courses
+                        <NavLink className="route" to="/reviews">
+                            Reviews
                         </NavLink>
                         <NavLink className="route" to="/blog">
                             Blog
@@ -60,7 +61,7 @@ const Footer = () => {
 
             {/* copyright section  */}
             <div className="copyright-section">
-                <p>Language Buddy <i className="fa fa-copyright" aria-hidden="true">All Rights Reserved - 2021 |  Made With <i className="fas fa-heart"></i> by Sadman Sakib</i></p>
+                <p>Drona <i className="fa fa-copyright" aria-hidden="true">All Rights Reserved - 2021 |  Made With <i className="fas fa-heart"></i> by Sadman Sakib</i></p>
             </div>
         </div>
     );

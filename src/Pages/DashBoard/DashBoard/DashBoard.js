@@ -26,9 +26,9 @@ import Typography from '@mui/material/Typography';
 import Orders from '../Orders/Orders';
 import { Button } from '@mui/material';
 import { Topic } from "@mui/icons-material";
-import DashBoardHome from "./DashBoardHome/DashBoardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import AddProduct from "../AddProduct/AddProduct";
+import DashBoardHome from "../DashBoardHome/DashBoardHome";
 
 
 const drawerWidth = 240;
@@ -49,15 +49,10 @@ function DashBoard(props) {
             </Link>
             <Toolbar />
             <Divider />
-            <Link style={{ textDecoration: 'none', color: 'black' }} to={`${url}`}>
-                <Button color="inherit">DashBoard</Button>
-            </Link> <br />
-            <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
-                <Button color="inherit">Add Product</Button>
-            </Link>
-            <Link style={{ textDecoration: 'none' }} to={`${url}/manageProducts`}><Button color="inherit">Manage Products</Button></Link>
-            <Link style={{ textDecoration: 'none', color: 'black' }} to={`${url}/manageOrders`}><Button color="inherit">Manage All Orders</Button></Link>
-            <Link style={{ textDecoration: 'none', color: 'black' }} to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
+            <Link to="/home"><Button color="inherit">Home</Button></Link>
+            <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
+            <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
+            <Link to={`${url}/addProduct`}><Button color="inherit">Add Product</Button></Link>
             <List>
                 {['Make Admin', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                     <ListItem button key={text}>
@@ -139,24 +134,20 @@ function DashBoard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-
                 <Switch>
                     <Route exact path={path}>
-                        <DashBoardHome />
-                    </Route>
-                    <Route path={`${path}/manageOrders`}>
-                        <Orders />
+                        <DashBoardHome ></DashBoardHome>
                     </Route>
                     <Route path={`${path}/makeAdmin`}>
-                        <MakeAdmin />
+                        <MakeAdmin></MakeAdmin>
                     </Route>
                     <Route path={`${path}/addProduct`}>
-                        <AddProduct />
+                        <AddProduct></AddProduct>
                     </Route>
+
+
                 </Switch>
-
-
-            </Box >
+            </Box>
         </Box >
     );
 }

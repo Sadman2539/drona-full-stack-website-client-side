@@ -8,12 +8,22 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-
+import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
+import HomeIcon from '@mui/icons-material/Home';
+import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
+import PersonIcon from '@mui/icons-material/Person';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 const Navigation = () => {
     const { user, logout } = useAuth();
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar position="static" sx={{
+                bgcolor: 'text.primary', color: 'white',
+                textAlign: 'center',
+                fontSize: '1rem',
+                fontWeight: '700',
+            }}>
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -24,54 +34,58 @@ const Navigation = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Drona
 
-                    </Typography>
+                    <Link style={{
+                        textDecoration: 'none', color: 'white'
+                    }} to="/">
+                        <Button color="inherit">Drona</Button>
+                    </Link>
+
+
                     <Link style={{ textDecoration: 'none', color: 'white' }} to="/home">
-                        <Button color="inherit">Home</Button>
+                        <Button color="inherit">
+                            <HomeIcon color="white" />
+                            Home</Button>
                     </Link>
                     <Link style={{ textDecoration: 'none', color: 'white' }} to="/explore">
-                        <Button color="inherit">Explore</Button>
+                        <Button color="inherit">
+                            <AddToPhotosIcon color="white" />
+                            Explore</Button>
                     </Link>
-                    {
-                        user?.email ?
-                            <Button onClick={logout} color="inherit">Logout</Button>
-                            :
 
-                            <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/login">
-                                <Button color="inherit">Login</Button>
-                            </NavLink>
-                    }
-                    {
-                        !user.displayName ?
-                            <div>
-                                <Link to="/login">
-                                    <button className="regular-btn">Login</button>
-                                </Link>
-                            </div> :
-                            <Box>
-                                <Link style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
-                                    <Button color="inherit">DashBoard</Button>
-                                </Link>
-                                <Link style={{ textDecoration: 'none', color: 'white' }} to="/orders">
-                                    <Button color="inherit">My Orders</Button>
-                                </Link>
-                                <Link style={{ textDecoration: 'none', color: 'white' }} to="/review">
-                                    <Button color="inherit">Review</Button>
-                                </Link>
-                                <Link style={{ textDecoration: 'none', color: 'white' }} to="/payment">
-                                    <Button color="inherit">Payment</Button>
-                                </Link>
+                    <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        {
+                            !user.displayName ?
+                                <div>
+                                    <Link to="/login" style={{ textDecoration: 'none' }}>
+                                        <Button variant="contained" color="success" >
+                                            <LoginIcon color="white" />
+                                            Login</Button>
+                                    </Link>
+                                </div> :
+                                <>
+                                    <Link style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
+                                        <Button color="inherit">
+                                            <DashboardCustomizeIcon color="white" />
+                                            DashBoard</Button>
+                                    </Link>
 
-                                <span className=" me-4"> {user.displayName}!</span>
-                                <button onClick={logout} className="regular-btn">Log Out</button>
-                            </Box>
-                    }
+                                    < Typography sx={{ mx: 3 }}>
+                                        <PersonIcon color="white" sx={{ pr: 2 }} />
+                                        Hello, {user.displayName}!</Typography>
+                                    <Button onClick={logout} variant="outlined" color="error">
+                                        <LogoutIcon />
+                                        Log Out
+
+                                    </Button>
+                                </>
+
+                        }
+                    </Box>
 
                 </Toolbar>
             </AppBar>
-        </Box>
+        </Box >
     );
 };
 
