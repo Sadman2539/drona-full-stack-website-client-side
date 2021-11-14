@@ -5,6 +5,7 @@ import { Container, Typography } from '@mui/material';
 
 import Navigation from '../Shared/Navigation/Navigation';
 import Product from '../Home/Product/Product';
+import Footer from '../Shared/Footer/Footer';
 
 
 
@@ -13,7 +14,7 @@ const Explore = () => {
 
     // load products from the server
     useEffect(() => {
-        fetch('http://localhost:5000/explore')
+        fetch('https://pacific-earth-55330.herokuapp.com/explore')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);
@@ -38,6 +39,7 @@ const Explore = () => {
                     </Grid>
                 </Container>
             </Box>
+            <Footer></Footer>
         </>
     );
 };
