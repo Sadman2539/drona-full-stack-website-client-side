@@ -25,15 +25,25 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Orders from '../Orders/Orders';
 import { Button } from '@mui/material';
-import { Topic } from "@mui/icons-material";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import AddProduct from "../AddProduct/AddProduct";
 import DashBoardHome from "../DashBoardHome/DashBoardHome";
+import useAuth from '../../../hooks/useAuth';
+import ManageAllOrders from "../ManageAllOrders/ManageAllOrders";
+import ManageProducts from "../ManageProducts/ManageProducts";
+import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
+import HomeIcon from '@mui/icons-material/Home';
+import ReorderIcon from '@mui/icons-material/Reorder';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 function DashBoard(props) {
+    const { admin } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -43,29 +53,44 @@ function DashBoard(props) {
     const { path, url } = useRouteMatch();
     const drawer = (
 
-        <div>
-            <Link style={{ textDecoration: 'none', color: 'black' }} to="/home">
-                <Button>Home</Button>
-            </Link>
+        < >
             <Toolbar />
-            <Divider />
-            <Link to="/home"><Button color="inherit">Home</Button></Link>
-            <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
-            <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
-            <Link to={`${url}/addProduct`}><Button color="inherit">Add Product</Button></Link>
+            <Link style={{ textDecoration: 'none', color: 'black' }} to="/home">
+                <Button>
+                    <HomeIcon />
+                    Home</Button>
+            </Link>
+
+
             <List>
-                {['Make Admin', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+                <Link to={`${url}`} style={{ textDecoration: 'none', color: 'primary.main' }}><Button color="inherit">
+                    <DashboardCustomizeIcon color="white" />
+                    Dashboard</Button></Link>
+                <Link to={`${url}/orders`} style={{ textDecoration: 'none', color: 'primary.main' }}><Button color="inherit">
+                    <ReorderIcon />
+                    Orders</Button></Link>
+                {
+                    admin && <Box>
+                        <Link to={`${url}/manageOrders`} style={{ textDecoration: 'none', color: 'primary.main' }}><Button color="inherit">
+                            <ManageAccountsIcon />
+                            Manage All Orders</Button></Link>
+                        <Link to={`${url}/addProduct`} style={{ textDecoration: 'none', color: 'primary.main' }}><Button color="inherit">
+                            <AddCircleOutlineIcon />
+                            Add Product</Button></Link>
+                        <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none', color: 'primary.main' }}><Button color="inherit">
+                            <ShoppingBasketIcon />
+                            Manage Products</Button></Link>
+                        <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'primary.main' }}><Button color="inherit">
+                            <PersonAddIcon />
+                            Make Admin</Button></Link>
+
+                    </Box>
+                }
+
             </List>
 
 
-        </div>
+        </>
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
@@ -106,6 +131,7 @@ function DashBoard(props) {
                 <Drawer
                     container={container}
                     variant="temporary"
+
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
                     ModalProps={{
@@ -141,8 +167,17 @@ function DashBoard(props) {
                     <Route path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
                     </Route>
+                    <Route path={`${path}/orders`}>
+                        <Orders></Orders>
+                    </Route>
+                    <Route path={`${path}/manageOrders`}>
+                        <ManageAllOrders></ManageAllOrders>
+                    </Route>
                     <Route path={`${path}/addProduct`}>
                         <AddProduct></AddProduct>
+                    </Route>
+                    <Route path={`${path}/manageProducts`}>
+                        <ManageProducts></ManageProducts>
                     </Route>
 
 

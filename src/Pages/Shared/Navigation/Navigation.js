@@ -19,7 +19,7 @@ const Navigation = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{
-                bgcolor: 'text.primary', color: 'white',
+                bgcolor: 'text.primary',
                 textAlign: 'center',
                 fontSize: '1rem',
                 fontWeight: '700',
@@ -58,8 +58,8 @@ const Navigation = () => {
                             !user.displayName ?
                                 <div>
                                     <Link to="/login" style={{ textDecoration: 'none' }}>
-                                        <Button variant="contained" color="success" >
-                                            <LoginIcon color="white" />
+                                        <Button variant="outlined" color="success" >
+                                            <LoginIcon />
                                             Login</Button>
                                     </Link>
                                 </div> :
@@ -73,7 +73,7 @@ const Navigation = () => {
                                     < Typography sx={{ mx: 3 }}>
                                         <PersonIcon color="white" sx={{ pr: 2 }} />
                                         Hello, {user.displayName}!</Typography>
-                                    <Button onClick={logout} variant="outlined" color="error">
+                                    <Button onClick={logout} variant="outlined" style={{ color: "primary.main" }}>
                                         <LogoutIcon />
                                         Log Out
 

@@ -22,9 +22,9 @@ const Blogs = () => {
     }, [])
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, my: 5 }}>
             <Container >
-                <Typography variant="h6" component="div" sx={{ fontWeight: 500, m: 5 }}>
+                <Typography variant="h4" component="div" sx={{ fontWeight: 500, my: 3, color: "secondary.main" }}>
                     Latest Blogs
                 </Typography>
 
@@ -33,6 +33,7 @@ const Blogs = () => {
                         blogs.map(blog => <Blog key={blog._id} blog={blog} />)
 
                     }
+
                 </Grid>
             </Container >
         </Box>

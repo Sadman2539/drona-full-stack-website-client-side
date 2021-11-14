@@ -4,7 +4,9 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Container, Typography } from '@mui/material';
 import Product from '../Product/Product';
-
+import { Button } from '@material-ui/core';
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import { Link } from 'react-router-dom';
 
 
 const Products = () => {
@@ -18,28 +20,41 @@ const Products = () => {
             .then(data => setProducts(data));
     }, [])
     return (
-        <>
-            <Box sx={{ flexGrow: 1 }}>
-                <Container >
-                    <Typography variant="h4" component="div" sx={{ fontWeight: 500, m: 5 }}>
-                        Featured Products
-                    </Typography>
-                    <Typography variant="h6" component="div" sx={{ fontWeight: 500, m: 2, color: 'success.main' }} >
-                        Latest drones in market
-                    </Typography>
-                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                        {
-                            products.map(product => <Product
-                                key={product.id}
-                                service={product}
-                            ></Product>)
-                        }
-                    </Grid>
 
-                </Container>
-            </Box>
+        <Box sx={{ flexGrow: 1, py: 10 }}>
+            <Container >
+                <Typography variant="h4" component="div" sx={{ fontWeight: 500 }}>
+                    Featured Products
+                </Typography>
+                <Typography variant="h6" component="div" sx={{ fontWeight: 500, py: 4, color: 'success.main' }} >
+                    Latest drones in market
+                </Typography>
+                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    {
+                        products.map(product => <Product
+                            key={product.id}
+                            service={product}
+                        ></Product>)
+                    }
+                </Grid>
+                <Link style={{ textDecoration: 'none', color: 'white' }} sx={{ py: 3 }} to="/explore">
+                    <Button variant="outlined" size="large" sx={{
+                        color: 'secondary.main',
+                        fontSize: '1rem',
+                        fontWeight: '700',
+                    }}>
 
-        </>
+                        Explore More
+                        <DoubleArrowIcon sx={{ ml: 2 }} />
+                    </Button>
+
+                </Link>
+
+            </Container>
+
+        </Box>
+
+
     );
 };
 

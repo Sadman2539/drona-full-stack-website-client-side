@@ -2,7 +2,7 @@ import React from 'react';
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { Container, Paper, Typography } from '@mui/material';
+import { Container, Paper, Rating, Typography } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -21,23 +21,25 @@ const Review = (props) => {
 
     return (
         <Grid item xs={2} sm={4} md={4} key={_id}>
-            <Card sx={{ maxWidth: 345 }}>
-                <CardHeader
-                    avatar={
-                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                            <CardMedia
-                                component="img"
-                                image={image}
-                                alt="User Photo"
-                            />
-                        </Avatar>
-                    }
+            <Card sx={{ maxWidth: 345, border: 0 }}>
 
-                    title={name}
-                    subheader={profession}
+                <CardMedia
+                    component="img"
+                    width="100"
+                    height="100"
+                    borderRadius="50%"
+                    image={image}
+                    alt="User Photo"
                 />
 
+
+
                 <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                        {name}
+                    </Typography>
+                    <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly />
+
                     <Typography variant="body2" color="text.secondary">
                         {comment}
                     </Typography>

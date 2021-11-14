@@ -45,7 +45,7 @@ const Purchase = () => {
         console.log(purchase);
         // send to the server
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://pacific-earth-55330.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -6,12 +6,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import { NavLink } from 'react-router-dom';
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const Product = (props) => {
     const { name, description, image, _id, price } = props.service;
     return (
         <Grid item xs={4} sm={4} md={4}>
-            <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
+            <Card sx={{ minWidth: 275, borderRadius: 5, boxShadow: 5 }}>
                 <CardMedia
                     component="img"
                     style={{ width: 'auto', height: '100px', margin: '0 auto' }}
@@ -24,14 +24,16 @@ const Product = (props) => {
                         Model: {name}
                     </Typography>
 
-                    <Typography variant="body2">
-                        Price: {price}
+                    <Typography variant="h6">
+                        Price: ${price}
                     </Typography>
-                    <Typography variant="body2">
+                    <Typography variant="body2" sx={{ pb: 3 }}>
                         {description}
                     </Typography>
-                    <NavLink to={`/purchase/${_id}`}>
-                        <button className="regular-btn">Purchase Now</button>
+                    <NavLink style={{ textDecoration: 'none' }} to={`/purchase/${_id}`}>
+                        <Button variant="contained" >
+                            <ShoppingCartIcon />
+                            Purchase Now</Button>
                     </NavLink>
                 </CardContent>
 

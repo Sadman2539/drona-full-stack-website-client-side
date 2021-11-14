@@ -1,15 +1,12 @@
 import React from 'react';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
-
 // import bg from '../../../images/bg.png'
 import { Button, Container, Typography, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
-const bannerBg = {
-    // background: `url${bg}`,
-}
+
 const drone = {
     width: 'initial',
     position: 'relative',
@@ -24,7 +21,7 @@ const verticalCenter = {
 const Banner = () => {
     return (
 
-        <Container sx={{ flexGrow: 1 }} sx={{ my: 5 }} >
+        <Container sx={{ flexGrow: 1, my: 10 }}  >
             <Grid container spacing={2} >
                 <Grid item style={{ ...verticalCenter, textAlign: 'left' }} xs={12} md={6}>
                     <Box>
@@ -32,18 +29,21 @@ const Banner = () => {
                             Imagine <br />
                             Above everything
                         </Typography>
-                        <Typography variant="h6" sx={{ mt: 5, fontSize: 13, fontWeight: '400px', color: 'gray' }}>
+                        <Typography variant="h6" sx={{ py: 5, fontSize: 13, fontWeight: '400px', color: 'gray' }}>
                             The Mavic Pro Platinum features a sleek design and compact body that is both powerful and alluring. A new and improved 30-minute flight time coupled with 60% noise power reduction makes the Mavic Pro Platinum DJI’s best portable drone yet.
                         </Typography>
-                        <Button variant="outlined" size="large" sx={{
-                            mt: 3,
-                            color: 'secondary.main',
-                            fontSize: '1rem',
-                            fontWeight: '700',
-                        }}>
-                            <VideoLibraryIcon />
-                            Watch Video
-                        </Button>
+
+                        <Link style={{ textDecoration: 'none' }} to="/explore">
+                            <Button variant="outlined" size="large" sx={{
+
+                                color: 'secondary.main',
+                                fontSize: '1rem',
+                                fontWeight: '700',
+                            }}>
+                                <VideoLibraryIcon />
+                                Watch Video
+                            </Button>
+                        </Link>
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6} style={verticalCenter} sx={{ mt: 8 }}>
