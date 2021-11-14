@@ -42,7 +42,7 @@ import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 import LogoutIcon from '@mui/icons-material/Logout';
 import PaymentIcon from '@mui/icons-material/Payment';
 import RateReviewIcon from '@mui/icons-material/RateReview';
-import Review from "../Review/Review";
+import AddReview from "../AddReview/AddReview";
 import Payment from "../Payment/Payment";
 
 const drawerWidth = 200;
@@ -192,7 +192,7 @@ function DashBoard(props) {
                         <Payment></Payment>
                     </Route>
                     <Route path={`${path}/addReview`}>
-                        <Review></Review>
+                        <AddReview></AddReview>
                     </Route>
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>

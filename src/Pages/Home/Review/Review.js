@@ -17,7 +17,7 @@ import { red } from '@mui/material/colors';
 
 
 const Review = (props) => {
-    const { name, profession, image, comment, rating, _id } = props.review;
+    const { userName, profession, image, comment, rating, _id } = props.review;
 
     return (
         <Grid item xs={12} sm={4} md={4} key={_id}>
@@ -25,9 +25,7 @@ const Review = (props) => {
 
                 <CardMedia
                     component="img"
-                    width="100"
-                    height="100"
-                    borderRadius="50%"
+                    style={{ width: 'auto', height: '150px', margin: '0 auto' }}
                     image={image}
                     alt="User Photo"
                 />
@@ -35,8 +33,11 @@ const Review = (props) => {
 
 
                 <CardContent>
+                    <Typography variant="h6" color="text.secondary">
+                        {userName}
+                    </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        {name}
+                        {profession}
                     </Typography>
                     <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly />
 

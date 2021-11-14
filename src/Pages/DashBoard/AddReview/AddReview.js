@@ -3,40 +3,45 @@ import React, { useState } from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import TextField from '@mui/material/TextField';
 import { Grid } from '@material-ui/core';
+import useAuth from '../../../hooks/useAuth';
 
-const AddProduct = () => {
+const AddReview = () => {
 
-    const [productInfo, setProductInfo] = useState({});
 
+    const { user } = useAuth();
+    const initialInfo = { userName: user.displayName, email: user.email, profession: '', rating: 0, comment: '', image: '' };
+    const [reviewInfo, setReviewInfo] = useState(initialInfo);
+
+    console.log(user);
 
     // handleOnBlur function call 
     const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
-        const newProductInfo = { ...productInfo };
-        newProductInfo[field] = value;
-        setProductInfo(newProductInfo);
+        const newReviewInfo = { ...reviewInfo };
+        newReviewInfo[field] = value;
+        setReviewInfo(newReviewInfo);
     }
 
-    const handleAddProduct = e => {
+    const handleReviewSubmit = e => {
         // collect data
-        const product = {
-            ...productInfo
+        const review = {
+            ...reviewInfo
         }
-        // console.log(product);
+        console.log(review);
         // send to the server
 
-        fetch('https://pacific-earth-55330.herokuapp.com/explore', {
+        fetch('https://pacific-earth-55330.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(product)
+            body: JSON.stringify(review)
         })
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    alert('Product added successfully!');
+                    alert('Thank you for your feedback!');
                 }
             })
 
@@ -50,7 +55,7 @@ const AddProduct = () => {
                         <CardMedia
                             component="img"
                             style={{ width: 'auto', height: '300px', margin: '0 auto' }}
-                            image="https://image.freepik.com/free-vector/happy-father-with-daughter-playing-with-quadcopter_74855-15436.jpg"
+                            image="https://image.freepik.com/free-vector/positive-customer-evaluation_74855-5920.jpg"
                             alt="Drone Photo"
                         />
 
@@ -63,32 +68,34 @@ const AddProduct = () => {
                     <Typography id="transition-modal-title" variant="h6" component="h2">
 
                     </Typography>
-                    <form onSubmit={handleAddProduct}>
+                    <form onSubmit={handleReviewSubmit}>
 
                         <TextField
                             sx={{ width: '100%', m: 1 }}
                             id="standard-size-normal"
-                            name="productName"
+                            name="userName"
                             onBlur={handleOnBlur}
-                            label="Product Name"
+                            defaultValue={user.displayName}
                             size="small"
+                            label="Name"
                         />
                         <TextField
                             sx={{ width: '100%', m: 1 }}
                             id="standard-size-normal"
-                            name="price"
+                            name="email"
                             onBlur={handleOnBlur}
+                            defaultValue={user.email}
                             size="small"
-                            label="Price"
-                            type="number"
+                            label="Email"
                         />
                         <TextField
                             sx={{ width: '100%', m: 1 }}
                             id="standard-size-normal"
-                            name="category"
+                            name="profession"
                             onBlur={handleOnBlur}
+                            defaultValue={user.displayName}
                             size="small"
-                            label="Category"
+                            label="Profession"
                         />
 
 
@@ -105,9 +112,9 @@ const AddProduct = () => {
                             sx={{ width: '100%', m: 1 }}
                             id="outlined-multiline-flexible"
                             multiline
-                            name="description"
+                            name="comment"
                             onBlur={handleOnBlur}
-                            label="Product Details"
+                            label="Review"
                         />
                         <TextField
                             sx={{ width: '100%', m: 1 }}
@@ -119,7 +126,7 @@ const AddProduct = () => {
                         />
 
 
-                        <Button type="submit" variant="outlined" sx={{ mt: 2, color: 'success.main' }}>Add Product</Button>
+                        <Button type="submit" variant="outlined" sx={{ mt: 2, color: 'success.main' }}>Submit</Button>
                     </form>
 
                 </Grid>
@@ -129,4 +136,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default AddReview;

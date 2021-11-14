@@ -16,15 +16,18 @@ const Reviews = () => {
     return (
 
 
-        <Box sx={{ flexGrow: 1, py: 8 }}>
+        <Box sx={{ flexGrow: 1, my: 8 }}>
             <Container >
-                <Typography variant="h4" component="div" sx={{ fontWeight: 500, py: 5, color: "secondary.main" }}>
-                    Customer Reviews
-                </Typography>
-                <Typography variant="h6" component="div" sx={{ fontWeight: 500, py: 2, color: 'success.main' }} >
-                    Lets hear what they say about us
-                </Typography>
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                <Box sx={{ my: 4 }}>
+
+                    <Typography variant="h4" component="div" sx={{ fontWeight: 500, mt: 5, color: "secondary.main" }}>
+                        Customer Reviews
+                    </Typography>
+                    <Typography variant="h6" component="div" style={{ color: 'green' }} sx={{ fontWeight: 500, }} >
+                        Lets hear what they say about us
+                    </Typography>
+                </Box>
+                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ mt: 8 }}>
                     {
                         reviews.map(review => <Review key={review._id} review={review} />)
 
@@ -32,7 +35,7 @@ const Reviews = () => {
                 </Grid>
 
             </Container>
-        </Box>
+        </Box >
 
 
     );
