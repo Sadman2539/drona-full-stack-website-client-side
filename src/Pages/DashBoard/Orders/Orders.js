@@ -52,7 +52,7 @@ function Orders() {
                         <TableCell>Product Name</TableCell>
                         <TableCell align="right">Price</TableCell>
                         <TableCell align="right">Quantity</TableCell>
-                        <TableCell align="right">Status</TableCell>
+                        <TableCell align="right">Action</TableCell>
 
                     </TableRow>
                 </TableHead>

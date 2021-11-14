@@ -39,12 +39,16 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
-
+import LogoutIcon from '@mui/icons-material/Logout';
+import PaymentIcon from '@mui/icons-material/Payment';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import Review from "../Review/Review";
+import Payment from "../Payment/Payment";
 
 const drawerWidth = 200;
 
 function DashBoard(props) {
-    const { admin, user } = useAuth();
+    const { admin, user, logout } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -54,7 +58,7 @@ function DashBoard(props) {
     const { path, url } = useRouteMatch();
     const drawer = (
 
-        < >
+        <>
             <Toolbar />
             <Link style={{ textDecoration: 'none', color: 'black' }} to="/home">
                 <Button color="inherit">
@@ -63,32 +67,48 @@ function DashBoard(props) {
             </Link>
 
 
-            <List>
-                <Link to={`${url}`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
-                    <DashboardCustomizeIcon color="white" />
-                    Dashboard</Button></Link>
-                <Link to={`${url}/orders`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
-                    <ReorderIcon />
-                    Orders</Button></Link>
-                {
-                    admin && <Box>
-                        <Link to={`${url}/manageOrders`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
-                            <ManageAccountsIcon />
-                            Manage All Orders</Button></Link>
-                        <Link to={`${url}/addProduct`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
-                            <AddCircleOutlineIcon />
-                            Add Product</Button></Link>
-                        <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
-                            <ShoppingBasketIcon />
-                            Manage Products</Button></Link>
-                        <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
-                            <PersonAddIcon />
-                            Make Admin</Button></Link>
 
+            <Link to={`${url}`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                <DashboardCustomizeIcon color="white" />
+                Dashboard</Button></Link>
+
+            {
+                admin ? <Box>
+                    <Link to={`${url}/manageOrders`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                        <ManageAccountsIcon />
+                        Manage All Orders</Button></Link>
+                    <Link to={`${url}/addProduct`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                        <AddCircleOutlineIcon />
+                        Add Product</Button></Link>
+                    <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                        <ShoppingBasketIcon />
+                        Manage Products</Button></Link>
+                    <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                        <PersonAddIcon />
+                        Make Admin</Button></Link>
+
+                </Box>
+                    :
+                    <Box>
+                        <Link to={`${url}/orders`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                            <ReorderIcon />
+                            My Orders</Button></Link>
+                        <Link to={`${url}/payment`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                            <PaymentIcon />
+                            Payment</Button></Link>
+                        <Link to={`${url}/addReview`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                            <RateReviewIcon />
+                            Review</Button></Link>
+
+                        <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'black' }}><Button onClick={logout} style={{ textDecoration: 'none', color: "inherit" }}>
+                            <LogoutIcon />
+                            LogOut
+
+                        </Button></Link>
                     </Box>
-                }
+            }
 
-            </List>
+
 
 
         </>
@@ -167,6 +187,12 @@ function DashBoard(props) {
                     </Route>
                     <Route path={`${path}/orders`}>
                         <Orders></Orders>
+                    </Route>
+                    <Route path={`${path}/payment`}>
+                        <Payment></Payment>
+                    </Route>
+                    <Route path={`${path}/addReview`}>
+                        <Review></Review>
                     </Route>
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
