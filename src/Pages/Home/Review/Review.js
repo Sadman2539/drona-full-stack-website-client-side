@@ -20,7 +20,7 @@ const Review = (props) => {
     const { name, profession, image, comment, rating, _id } = props.review;
 
     return (
-        <Grid item xs={2} sm={4} md={4} key={_id}>
+        <Grid item xs={12} sm={4} md={4} key={_id}>
             <Card sx={{ maxWidth: 345, border: 0 }}>
 
                 <CardMedia

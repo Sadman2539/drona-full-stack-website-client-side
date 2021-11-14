@@ -57,8 +57,8 @@ const Navigation = () => {
                         {
                             !user.displayName ?
                                 <div>
-                                    <Link to="/login" style={{ textDecoration: 'none' }}>
-                                        <Button variant="outlined" color="success" >
+                                    <Link to="/login" style={{ textDecoration: 'none', color: 'green' }}>
+                                        <Button variant="outlined" color="inherit" >
                                             <LoginIcon />
                                             Login</Button>
                                     </Link>
@@ -66,14 +66,14 @@ const Navigation = () => {
                                 <>
                                     <Link style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
                                         <Button color="inherit">
-                                            <DashboardCustomizeIcon color="white" />
+                                            <DashboardCustomizeIcon color="inherit" />
                                             DashBoard</Button>
                                     </Link>
 
                                     < Typography sx={{ mx: 3 }}>
                                         <PersonIcon color="white" sx={{ pr: 2 }} />
                                         Hello, {user.displayName}!</Typography>
-                                    <Button onClick={logout} variant="outlined" style={{ color: "primary.main" }}>
+                                    <Button onClick={logout} variant="outlined" style={{ textDecoration: 'none', color: "inherit" }}>
                                         <LogoutIcon />
                                         Log Out
 

@@ -29,7 +29,7 @@ const Products = () => {
                 <Typography variant="h6" component="div" sx={{ fontWeight: 500, py: 4, color: 'success.main' }} >
                     Latest drones in market
                 </Typography>
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 6, sm: 6, md: 12 }}>
                     {
                         products.map(product => <Product
                             key={product.id}

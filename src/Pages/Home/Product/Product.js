@@ -10,7 +10,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const Product = (props) => {
     const { name, description, image, _id, price } = props.service;
     return (
-        <Grid item xs={4} sm={4} md={4}>
+        <Grid item xs={12} sm={4} md={4}>
             <Card sx={{ minWidth: 275, borderRadius: 5, boxShadow: 5 }}>
                 <CardMedia
                     component="img"

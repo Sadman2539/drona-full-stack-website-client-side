@@ -12,7 +12,7 @@ import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 const Blog = (props) => {
     const { title, category, description, image, date, _id } = props.blog;
     return (
-        <Grid item xs={2} sm={4} md={4} key={_id}>
+        <Grid item xs={12} sm={4} md={4} key={_id}>
             <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                     component="img"
