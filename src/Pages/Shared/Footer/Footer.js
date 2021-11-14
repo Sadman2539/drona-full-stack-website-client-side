@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="footer-contact mt-5 p-5">
 
                 <div className="about w-25">
-                    <h3>Drona: Find your best drone</h3>
+                    <h3>Drona : A website for Drone Lovers</h3>
                     <p>Drona is a drone selling shop where we provide the best drones in the market with the reasonable price for our customers.</p>
                 </div>
                 {/* contact section  */}
