@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 const drone = {
-    width: 'initial',
+    width: '100%',
     position: 'relative',
     animation: 'ImgAnimate 3s infinite linear .2s'
 
@@ -23,6 +23,9 @@ const Banner = () => {
 
         <Container sx={{ flexGrow: 1, my: 10 }}  >
             <Grid container spacing={2} >
+                <Grid item xs={12} md={6} style={verticalCenter} sx={{ mt: 8 }}>
+                    <img style={drone} src="https://cdn.shopify.com/s/files/1/0074/2126/3962/files/img-slider-2_800x.png?v=1613635332" alt="" />
+                </Grid>
                 <Grid item style={{ ...verticalCenter, textAlign: 'left' }} xs={12} md={6}>
                     <Box>
                         <Typography variant="h3" >
@@ -46,9 +49,7 @@ const Banner = () => {
                         </Link>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={6} style={verticalCenter} sx={{ mt: 8 }}>
-                    <img style={drone} src="https://cdn.shopify.com/s/files/1/0074/2126/3962/files/img-slider-2_800x.png?v=1613635332" alt="" />
-                </Grid>
+
             </Grid>
         </Container >
 

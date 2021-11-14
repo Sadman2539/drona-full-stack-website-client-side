@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     const [adminSuccess, setAdminSuccess] = useState(false);
 
     // import auth functions 
-    const { user, loginUser, authError } = useAuth();
+    const { user, loginUser, authError, token } = useAuth();
 
 
     const handleOnBlur = e => {
@@ -26,6 +26,7 @@ const MakeAdmin = () => {
         fetch('http://localhost:5000/users/admin', {
             method: 'PUT',
             headers: {
+                'authorization': `Bearer ${token}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(user)
