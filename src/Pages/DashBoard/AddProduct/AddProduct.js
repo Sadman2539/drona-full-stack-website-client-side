@@ -45,7 +45,7 @@ const AddProduct = () => {
         e.preventDefault();
     }
     return (
-        <Container sx={{ mt: 8 }}>
+        <Container sx={{ mt: 2 }}>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 6, sm: 6, md: 12 }}  >
                 <Grid item xs={12} md={6} >
                     <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
@@ -60,7 +60,7 @@ const AddProduct = () => {
                     </Card>
 
                 </Grid>
-                <Grid sx={{ mt: 8 }} item xs={12} md={6}>
+                <Grid item xs={12} md={6}>
 
                     <Typography variant="h5" component="div" sx={{ fontWeight: 500, m: 2, color: 'info.main' }} >
                         Please add a product
@@ -121,7 +121,7 @@ const AddProduct = () => {
                         />
 
 
-                        <Button type="submit" variant="contained" size="large">
+                        <Button type="submit" variant="outlined" sx={{ mt: 2, color: 'success.main' }}>
                             <AddCircleOutlineIcon />
                             Add </Button>
                     </form>

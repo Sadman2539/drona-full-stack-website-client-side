@@ -18,9 +18,9 @@ const MakeAdmin = () => {
     //  handleAdminSubmit function declaration
     const handleAdminSubmit = e => {
 
-
         const user = { email };
         fetch('https://pacific-earth-55330.herokuapp.com/users/admin', {
+
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${token}`,
@@ -51,7 +51,7 @@ const MakeAdmin = () => {
             <Container>
                 <Grid container spacing={2} sx={{ mt: 8 }}>
                     <Grid item xs={12} md={6}>
-                        <img src="https://image.freepik.com/free-vector/male-businessman-character-sitting-office-workplace-computer-monitor-desk_80328-218.jpg" alt="" />
+                        <img style={{ width: 400 }} src="https://image.freepik.com/free-vector/male-businessman-character-sitting-office-workplace-computer-monitor-desk_80328-218.jpg" alt="" />
 
 
                     </Grid>
@@ -75,15 +75,15 @@ const MakeAdmin = () => {
 
 
                             <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained" >Submit </Button>
-
+                            {
+                                adminSuccess && <Alert severity="success">Admin Added Successfully!</Alert>
+                            }
+                            {
+                                authError && <Alert severity="error">{authError}</Alert>
+                            }
                         </form>
 
-                        {
-                            adminSuccess && <Alert severity="success">Admin Added Successfully!</Alert>
-                        }
-                        {
-                            authError && <Alert severity="error">{authError}</Alert>
-                        }
+
 
 
                     </Grid>

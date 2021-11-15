@@ -65,7 +65,7 @@ function DashBoard(props) {
 
             {
                 admin ? <Box>
-                    <Link to={`${url}/manageOrders`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" style={{ padding: 10 }}>
+                    <Link to={`${url}/manageOrders`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" >
                         <ManageAccountsIcon />
                         Manage All Orders</Button></Link>
                     <Link to={`${url}/addProduct`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" style={{ padding: 10 }}>

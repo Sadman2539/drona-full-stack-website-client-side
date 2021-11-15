@@ -79,7 +79,7 @@ const useFirebase = () => {
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setUser(user)
+                setUser(user);
                 getIdToken(user)
                     .then((idToken) => setToken(idToken))
             } else {
