@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import TextField from '@mui/material/TextField';
 import { Grid } from '@material-ui/core';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+
 
 const AddProduct = () => {
 
@@ -60,8 +62,8 @@ const AddProduct = () => {
                 </Grid>
                 <Grid sx={{ mt: 8 }} item xs={12} md={6}>
 
-                    <Typography id="transition-modal-title" variant="h6" component="h2">
-
+                    <Typography variant="h5" component="div" sx={{ fontWeight: 500, m: 2, color: 'info.main' }} >
+                        Please add a product
                     </Typography>
                     <form onSubmit={handleAddProduct}>
 
@@ -119,7 +121,9 @@ const AddProduct = () => {
                         />
 
 
-                        <Button type="submit" variant="outlined" sx={{ mt: 2, color: 'success.main' }}>Add Product</Button>
+                        <Button type="submit" variant="contained" size="large">
+                            <AddCircleOutlineIcon />
+                            Add </Button>
                     </form>
 
                 </Grid>

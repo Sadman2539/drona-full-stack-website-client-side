@@ -4,7 +4,7 @@ import CardMedia from '@mui/material/CardMedia';
 import TextField from '@mui/material/TextField';
 import { Grid } from '@material-ui/core';
 import useAuth from '../../../hooks/useAuth';
-
+import AddCommentIcon from '@mui/icons-material/AddComment';
 const AddReview = () => {
 
 
@@ -65,8 +65,8 @@ const AddReview = () => {
                 </Grid>
                 <Grid sx={{ mt: 8 }} item xs={12} md={6}>
 
-                    <Typography id="transition-modal-title" variant="h6" component="h2">
-
+                    <Typography variant="h5" component="div" sx={{ fontWeight: 500, m: 2, color: 'info.main' }} >
+                        Please add a review
                     </Typography>
                     <form onSubmit={handleReviewSubmit}>
 
@@ -126,7 +126,11 @@ const AddReview = () => {
                         />
 
 
-                        <Button type="submit" variant="outlined" sx={{ mt: 2, color: 'success.main' }}>Submit</Button>
+                        <Button type="submit" variant="outlined" sx={{ mt: 2, color: 'success.main' }}>
+
+                            Submit
+                            <AddCommentIcon />
+                        </Button>
                     </form>
 
                 </Grid>

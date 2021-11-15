@@ -2,7 +2,6 @@ import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography
 import React, { useState } from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import admin from '../../../images/admin.jpg'
 
 const MakeAdmin = () => {
     const [isLoading] = useState({});
@@ -54,7 +53,7 @@ const MakeAdmin = () => {
             <Container>
                 <Grid container spacing={2} sx={{ mt: 8 }}>
                     <Grid item xs={12} md={6}>
-                        <img src={admin} alt="" />
+                        <img src="https://image.freepik.com/free-vector/male-businessman-character-sitting-office-workplace-computer-monitor-desk_80328-218.jpg" alt="" />
 
 
                     </Grid>

@@ -6,7 +6,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button } from '@material-ui/core';
+import { Button, Typography } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function ManageAllOrders() {
 
@@ -38,12 +39,15 @@ function ManageAllOrders() {
 
     return (
         <TableContainer component={Paper}>
+            <Typography variant="h5" component="div" sx={{ fontWeight: 500, m: 2, color: 'info.main' }} >
+                Manage All Orders Here
+            </Typography>
             <Table sx={{ minWidth: 650 }} aria-label="Orders table">
                 <TableHead>
                     <TableRow>
                         <TableCell>Product Name</TableCell>
-                        <TableCell align="right">Price</TableCell>
-                        <TableCell align="right">Quantity</TableCell>
+                        <TableCell align="right">Customer Name</TableCell>
+                        <TableCell align="right">User Email</TableCell>
                         <TableCell align="right">Action</TableCell>
 
                     </TableRow>
@@ -56,10 +60,11 @@ function ManageAllOrders() {
                         <TableCell component="th" scope="row">
                             {product.productName}
                         </TableCell>
-                        <TableCell align="right">{product.productPrice}</TableCell>
-                        <TableCell align="right">{product.productRating}</TableCell>
+                        <TableCell align="right">{product.userName}</TableCell>
+                        <TableCell align="right">{product.email}</TableCell>
                         <TableCell align="right"><Button onClick={() => handleDeleteOrder(product._id)} variant="outlined" color="error">
                             Delete
+                            <DeleteIcon />
                         </Button></TableCell>
                     </TableRow>
                     ))}
