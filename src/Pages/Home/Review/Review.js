@@ -32,8 +32,7 @@ const Review = (props) => {
                     <Typography variant="body2" color="text.secondary">
                         {profession}
                     </Typography>
-                    <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly />
-
+                    <Rating name="read-only" value={rating} readOnly />
                     <Typography variant="body2" color="text.secondary">
                         {comment}
                     </Typography>

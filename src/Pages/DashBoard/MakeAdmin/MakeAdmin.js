@@ -7,7 +7,7 @@ const MakeAdmin = () => {
     const [adminSuccess, setAdminSuccess] = useState(false);
 
     // import auth functions 
-    const { authError, token } = useAuth();
+    const { authError } = useAuth();
 
 
     const handleOnBlur = e => {
@@ -23,7 +23,6 @@ const MakeAdmin = () => {
 
             method: 'PUT',
             headers: {
-                'authorization': `Bearer ${token}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(user)
