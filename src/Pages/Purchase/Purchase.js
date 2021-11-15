@@ -75,7 +75,7 @@ const Purchase = () => {
                         <CardContent>
 
                             <Typography variant="h5" component="div">
-                                Model: {product.name}
+                                Model: {product.productName}
                             </Typography>
 
                             <Typography variant="h6">
@@ -104,7 +104,7 @@ const Purchase = () => {
                             id="outlined-disabled"
                             disabled
                             name="productName"
-                            label={product.name}
+                            label={product.productName}
                             size="small"
                         />
                         <TextField
