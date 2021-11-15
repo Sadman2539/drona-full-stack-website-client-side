@@ -6,6 +6,7 @@ import Banner from '../Banner/Banner';
 import Reviews from '../Reviews/Reviews';
 import Blogs from '../Blogs/Blogs';
 import Footer from '../../Shared/Footer/Footer';
+import PhotoAlbum from '../PhotoAlbum/PhotoAlbum';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <Products></Products>
             <Blogs></Blogs>
             <Reviews></Reviews>
+            <PhotoAlbum></PhotoAlbum>
             <Footer></Footer>
         </div>
     );

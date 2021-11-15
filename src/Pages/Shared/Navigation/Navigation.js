@@ -70,8 +70,8 @@ const Navigation = () => {
                                             DashBoard</Button>
                                     </Link>
 
-                                    < Typography sx={{ mx: 3 }}>
-                                        <PersonIcon color="white" sx={{ pr: 2 }} />
+                                    < Typography variant="h6" component="h2">
+
                                         Hello, {user.displayName}!</Typography>
                                     <Button onClick={logout} variant="outlined" style={{ textDecoration: 'none', color: "inherit" }}>
                                         <LogoutIcon />

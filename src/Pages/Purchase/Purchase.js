@@ -8,6 +8,8 @@ import Products from '../Home/Products/Products';
 import { useParams } from 'react-router';
 import { Grid } from '@material-ui/core';
 import CardContent from '@mui/material/CardContent';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Link } from 'react-router-dom';
 
 const Purchase = () => {
     const [product, setProduct] = useState([]);
@@ -18,7 +20,7 @@ const Purchase = () => {
     const [purchaseInfo, setPurchaseInfo] = useState(initialInfo);
 
     useEffect(() => {
-        fetch(`https://pacific-earth-55330.herokuapp.com/${purchaseId}`)
+        fetch(`https://pacific-earth-55330.herokuapp.com/purchase/${purchaseId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, []);
@@ -155,6 +157,11 @@ const Purchase = () => {
                 </Grid>
 
             </Grid>
+            <Link style={{ textDecoration: 'none' }} to="/home">
+                <Button color="inherit" variant="outlined">
+                    <ArrowBackIcon />
+                    Home</Button>
+            </Link>
         </Container>
     );
 };

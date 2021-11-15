@@ -23,7 +23,7 @@ function ManageAllOrders() {
     // handleDeleteOrder function declaration 
     const handleDeleteOrder = (id) => {
         if (window.confirm('Are you sure you want to delete this order?')) {
-            fetch(`https://pacific-earth-55330.herokuapp.com/${id}`, {
+            fetch(`https://pacific-earth-55330.herokuapp.com/orders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

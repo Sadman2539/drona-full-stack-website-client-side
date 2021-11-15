@@ -18,14 +18,14 @@ function Orders() {
         fetch(`https://pacific-earth-55330.herokuapp.com/orders?email=${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
-            .then(console.log(orders))
+            .catch(err => console.log(err));
 
     }, []);
 
     // handleDeleteOrder function declaration 
     const handleDeleteOrder = (id) => {
         if (window.confirm('Are you sure you want to delete this order?')) {
-            fetch(`https://pacific-earth-55330.herokuapp.com/${id}`, {
+            fetch(`https://pacific-earth-55330.herokuapp.com/orders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
