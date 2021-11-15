@@ -1,15 +1,13 @@
-import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Button, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const MakeAdmin = () => {
-    const [isLoading] = useState({});
-    const [email, setEmail] = useState('{}');
+    const [email, setEmail] = useState('');
     const [adminSuccess, setAdminSuccess] = useState(false);
 
     // import auth functions 
-    const { user, loginUser, authError, token } = useAuth();
+    const { authError, token } = useAuth();
 
 
     const handleOnBlur = e => {
@@ -33,7 +31,7 @@ const MakeAdmin = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                    setEmail('');
+                    // setEmail('');
                     setAdminSuccess(true);
 
                 }
@@ -78,17 +76,14 @@ const MakeAdmin = () => {
 
                             <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained" >Submit </Button>
 
-
-
-                            {
-                                adminSuccess && <Alert severity="success">Admin Added Successfully!</Alert>
-                            }
-                            {
-                                authError && <Alert severity="error">{authError}</Alert>
-                            }
                         </form>
 
-
+                        {
+                            adminSuccess && <Alert severity="success">Admin Added Successfully!</Alert>
+                        }
+                        {
+                            authError && <Alert severity="error">{authError}</Alert>
+                        }
 
 
                     </Grid>

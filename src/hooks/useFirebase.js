@@ -100,6 +100,8 @@ const useFirebase = () => {
         })
             .finally(() => setIsLoading(false));
     }
+
+    // Admin checking function
     useEffect(() => {
         fetch(`https://pacific-earth-55330.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
