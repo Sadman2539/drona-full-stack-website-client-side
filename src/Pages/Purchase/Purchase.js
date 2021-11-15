@@ -1,10 +1,8 @@
 import { Button, Card, Container, Typography } from '@mui/material';
-import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import TextField from '@mui/material/TextField';
 import useAuth from '../../hooks/useAuth';
-import Products from '../Home/Products/Products';
 import { useParams } from 'react-router';
 import { Grid } from '@material-ui/core';
 import CardContent from '@mui/material/CardContent';

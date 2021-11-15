@@ -1,12 +1,10 @@
 import * as React from 'react';
-import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import './Footer.css'
 import { Container, Typography } from '@material-ui/core';
 import { TextField } from '@mui/material';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import CopyrightIcon from '@mui/icons-material/Copyright';

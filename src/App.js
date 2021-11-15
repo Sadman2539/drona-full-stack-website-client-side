@@ -1,6 +1,6 @@
 import {
   BrowserRouter as Router,
-  Route, Switch, Link
+  Route, Switch
 } from "react-router-dom";
 import './App.css';
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
