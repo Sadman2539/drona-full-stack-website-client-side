@@ -52,46 +52,46 @@ function DashBoard(props) {
         <>
             <Toolbar />
             <Link style={{ textDecoration: 'none', color: 'black' }} to="/home">
-                <Button color="inherit">
+                <Button color="inherit" style={{ padding: 10 }}>
                     <HomeIcon />
                     Home</Button>
             </Link>
 
 
 
-            <Link to={`${url}`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+            <Link to={`${url}`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" style={{ padding: 10 }}>
                 <DashboardCustomizeIcon color="white" />
                 Dashboard</Button></Link>
 
             {
                 admin ? <Box>
-                    <Link to={`${url}/manageOrders`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                    <Link to={`${url}/manageOrders`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" style={{ padding: 10 }}>
                         <ManageAccountsIcon />
                         Manage All Orders</Button></Link>
-                    <Link to={`${url}/addProduct`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                    <Link to={`${url}/addProduct`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" style={{ padding: 10 }}>
                         <AddCircleOutlineIcon />
                         Add Product</Button></Link>
-                    <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                    <Link to={`${url}/manageProducts`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" style={{ padding: 10 }}>
                         <ShoppingBasketIcon />
                         Manage Products</Button></Link>
-                    <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                    <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" style={{ padding: 10 }}>
                         <PersonAddIcon />
                         Make Admin</Button></Link>
 
                 </Box>
                     :
                     <Box>
-                        <Link to={`${url}/orders`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                        <Link to={`${url}/orders`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" style={{ padding: 10 }}>
                             <ReorderIcon />
                             My Orders</Button></Link>
-                        <Link to={`${url}/payment`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                        <Link to={`${url}/payment`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" style={{ padding: 10 }}>
                             <PaymentIcon />
                             Payment</Button></Link>
-                        <Link to={`${url}/addReview`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">
+                        <Link to={`${url}/addReview`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" style={{ padding: 10 }}>
                             <RateReviewIcon />
                             Review</Button></Link>
 
-                        <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'black' }}><Button onClick={logout} style={{ textDecoration: 'none', color: "inherit" }}>
+                        <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'black' }}><Button onClick={logout} style={{ textDecoration: 'none', color: "inherit", padding: 10 }}>
                             <LogoutIcon />
                             LogOut
 
