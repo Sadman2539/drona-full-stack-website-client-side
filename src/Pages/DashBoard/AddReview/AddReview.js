@@ -93,7 +93,7 @@ const AddReview = () => {
                             id="standard-size-normal"
                             name="profession"
                             onBlur={handleOnBlur}
-                            defaultValue={user.displayName}
+                            defaultValue={user.profession}
                             size="small"
                             label="Profession"
                         />
